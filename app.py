@@ -1,9 +1,14 @@
 import streamlit as st
 import google.generativeai as genai
+from dotenv import load_dotenv
+import os
 
-# Configure API key
-key = 'AIzaSyB--Kl3a3a3gY-3AsntQeSjgQwUp_NnPio'  # Replace with your actual API key
-genai.configure(api_key=key)
+
+# Load environment variables
+load_dotenv()
+
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+genai.configure(api_key=GOOGLE_API_KEY)
 
 # Function to generate MCQs
 def generate_mcq(subject, number, level):
